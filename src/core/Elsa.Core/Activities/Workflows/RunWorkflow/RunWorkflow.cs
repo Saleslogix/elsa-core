@@ -144,7 +144,12 @@ namespace Elsa.Activities.Workflows
             //We know it is a retry if ChildWorkflowInstanceId has a value here, but that value is not the real associated ChildWorkflow
             if (RetryFailedActivities && !string.IsNullOrEmpty(ChildWorkflowInstanceId) && AlreadyExecutedChildren.ContainsKey(hash))
             {
-                ChildWorkflowInstanceId = AlreadyExecutedChildren.GetValueOrDefault(hash);
+                string val;
+                if(AlreadyExecutedChildren.TryGetValue(hash, out val))
+                {
+                    ChildWorkflowInstanceId = val;
+                }
+                
                 childWorkflowInstance = await _workflowInstanceStore.FindByIdAsync(ChildWorkflowInstanceId);
 
                 if (childWorkflowInstance == null)

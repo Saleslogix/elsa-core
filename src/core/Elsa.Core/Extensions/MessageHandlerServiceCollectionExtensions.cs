@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Reflection;
 using MediatR;
@@ -21,7 +21,7 @@ namespace Elsa
         public static IServiceCollection AddNotificationHandlers(this IServiceCollection services, params Type[] markerTypes)
         {
             var assemblies = markerTypes.Select(x => x.GetTypeInfo().Assembly);
-            ServiceRegistrar.AddMediatRClasses(services, assemblies, new MediatRServiceConfiguration());
+            ServiceRegistrar.AddMediatRClasses(services, assemblies);
             return services;
         }
     }

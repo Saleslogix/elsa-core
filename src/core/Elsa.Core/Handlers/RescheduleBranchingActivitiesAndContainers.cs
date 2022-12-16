@@ -5,6 +5,7 @@ using Elsa.Events;
 using Elsa.Models;
 using Elsa.Services.Models;
 using MediatR;
+using Rebus.Extensions;
 
 namespace Elsa.Handlers
 {

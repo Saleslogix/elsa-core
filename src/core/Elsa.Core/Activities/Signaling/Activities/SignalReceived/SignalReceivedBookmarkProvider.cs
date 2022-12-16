@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading;
@@ -11,6 +11,11 @@ namespace Elsa.Activities.Signaling
     public class SignalReceivedBookmark : IBookmark
     {
         public string Signal { get; set; } = default!;
+
+        public bool? Compare(IBookmark bookmark)
+        {
+            return null;
+        }
     }
 
     public class SignalReceivedBookmarkProvider : BookmarkProvider<SignalReceivedBookmark, SignalReceived>

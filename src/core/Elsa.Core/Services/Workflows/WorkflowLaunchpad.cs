@@ -14,6 +14,7 @@ using Elsa.Services.WorkflowStorage;
 using Medallion.Threading;
 using Microsoft.Extensions.Logging;
 using Open.Linq.AsyncExtensions;
+using Rebus.Extensions;
 
 namespace Elsa.Services.Workflows
 {

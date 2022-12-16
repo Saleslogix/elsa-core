@@ -6,6 +6,7 @@ using Elsa.Attributes;
 using Elsa.Options;
 using Elsa.Services.Startup;
 using Microsoft.Extensions.Configuration;
+using Rebus.Extensions;
 
 namespace Elsa
 {

@@ -11,6 +11,7 @@ using Elsa.Models;
 using Elsa.Services;
 using Elsa.Services.Models;
 using MediatR;
+using Rebus.Extensions;
 
 // ReSharper disable once CheckNamespace
 namespace Elsa.Activities.ControlFlow

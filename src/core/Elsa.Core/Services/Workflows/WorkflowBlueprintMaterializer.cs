@@ -110,8 +110,12 @@ namespace Elsa.Services.Workflows
         {
             var sourceActivityId = connectionDefinition.SourceActivityId;
             var targetActivityId = connectionDefinition.TargetActivityId;
-            var source = sourceActivityId != null ? activityDictionary.GetValueOrDefault(sourceActivityId) : default;
-            var target = targetActivityId != null ? activityDictionary.GetValueOrDefault(targetActivityId) : default;
+
+            IActivityBlueprint source;
+            IActivityBlueprint target;
+            _ = activityDictionary.TryGetValue(sourceActivityId, out source);
+            _ = activityDictionary.TryGetValue(targetActivityId, out target);
+
             var outcome = connectionDefinition.Outcome;
 
             if (source == null || target == null)

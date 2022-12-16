@@ -229,6 +229,8 @@ namespace Elsa.Services.Workflows
             await _workflowDefinitionStore.DeleteAsync(workflowDefinition, cancellationToken);
         }
 
+        private static readonly DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+
         private WorkflowDefinition Initialize(WorkflowDefinition workflowDefinition)
         {
             if (workflowDefinition.Id == null!)
@@ -240,7 +242,7 @@ namespace Elsa.Services.Workflows
             if (workflowDefinition.DefinitionId == null!)
                 workflowDefinition.DefinitionId = _idGenerator.Generate();
 
-            if (workflowDefinition.CreatedAt == Instant.MinValue || workflowDefinition.CreatedAt == Instant.FromDateTimeOffset(DateTimeOffset.UnixEpoch))
+            if (workflowDefinition.CreatedAt == Instant.MinValue || workflowDefinition.CreatedAt == Instant.FromDateTimeOffset(epoch))
                 workflowDefinition.CreatedAt = _clock.GetCurrentInstant();
 
             return workflowDefinition;
