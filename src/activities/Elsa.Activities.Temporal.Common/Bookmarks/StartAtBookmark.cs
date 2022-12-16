@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,6 +10,11 @@ namespace Elsa.Activities.Temporal.Common.Bookmarks
     public class StartAtBookmark : IBookmark
     {
         public Instant ExecuteAt { get; set; }
+
+        public bool? Compare(IBookmark bookmark)
+        {
+            return null;
+        }
     }
 
     public class StartAtBookmarkProvider : BookmarkProvider<StartAtBookmark, StartAt>

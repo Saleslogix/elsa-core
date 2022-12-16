@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -6,7 +6,13 @@ using Elsa.Services;
 
 namespace Elsa.Activities.Http.Bookmarks
 {
-    public record HttpEndpointBookmark(string Path, string? Method) : IBookmark;
+    public record HttpEndpointBookmark(string Path, string? Method) : IBookmark
+    {
+        public bool? Compare(IBookmark bookmark)
+        {
+            return null;
+        }
+    }
 
     public class HttpEndpointBookmarkProvider : BookmarkProvider<HttpEndpointBookmark, HttpEndpoint>
     {
